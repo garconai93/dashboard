@@ -2,15 +2,16 @@
   {
     "id": 1,
     "name": "AziNews",
-    "description": "Site de stiri cu Radio, Vreme, Curs, Horoscop",
+    "description": "Site de stiri cu Radio, Vreme, Curs, Horoscop + App Android",
     "status": "activ",
     "host": "GitHub Pages",
     "url": "https://azinews.ro",
     "github": "https://github.com/garconai93/AziNews-HTML",
+    "apk": "/home/builder/AziNews.apk",
     "agents": 0,
-    "stage": "in dezvoltare",
+    "stage": "in aprobare Google Play",
     "money": false,
-    "android": false,
+    "android": true,
     "lastUpdate": "2026-03-07"
   },
   {
