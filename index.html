@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard Proiecte - Siro</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { 
+            font-family: 'Segoe UI', sans-serif; 
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        .header {
+            text-align: center;
+            padding: 40px 0;
+        }
+        .header h1 {
+            color: #fff;
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+        .header p {
+            color: #888;
+        }
+        .stats {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+            flex-wrap: wrap;
+        }
+        .stat-box {
+            background: rgba(255,255,255,0.1);
+            padding: 20px 40px;
+            border-radius: 15px;
+            text-align: center;
+        }
+        .stat-number {
+            font-size: 2rem;
+            font-weight: bold;
+            color: #ff6b35;
+        }
+        .stat-label {
+            color: #aaa;
+            font-size: 0.9rem;
+        }
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 20px;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .project-card {
+            background: #1e1e2f;
+            border-radius: 15px;
+            padding: 25px;
+            border: 1px solid #333;
+            transition: transform 0.3s, border-color 0.3s;
+        }
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #ff6b35;
+        }
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 15px;
+        }
+        .project-name {
+            color: #fff;
+            font-size: 1.4rem;
+        }
+        .status-badge {
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        .status-activ {
+            background: #00c853;
+            color: #fff;
+        }
+        .status-pauza {
+            background: #ff9800;
+            color: #fff;
+        }
+        .status-inactiv {
+            background: #f44336;
+            color: #fff;
+        }
+        .project-desc {
+            color: #aaa;
+            margin-bottom: 15px;
+            font-size: 0.9rem;
+        }
+        .project-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 10px;
+            margin-bottom: 15px;
+        }
+        .info-item {
+            background: rgba(255,255,255,0.05);
+            padding: 10px;
+            border-radius: 8px;
+        }
+        .info-label {
+            color: #666;
+            font-size: 0.75rem;
+            margin-bottom: 3px;
+        }
+        .info-value {
+            color: #fff;
+            font-size: 0.9rem;
+        }
+        .project-links {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: background 0.3s;
+            flex: 1;
+            text-align: center;
+        }
+        .btn-primary {
+            background: #ff6b35;
+            color: #fff;
+        }
+        .btn-primary:hover {
+            background: #ff8c5a;
+        }
+        .btn-secondary {
+            background: #333;
+            color: #fff;
+        }
+        .btn-secondary:hover {
+            background: #444;
+        }
+        .features {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            margin-top: 15px;
+        }
+        .feature {
+            font-size: 0.75rem;
+            padding: 5px 10px;
+            border-radius: 5px;
+            background: rgba(255,107,53,0.2);
+            color: #ff6b35;
+        }
+        .feature.money {
+            background: rgba(0,200,83,0.2);
+            color: #00c853;
+        }
+        .feature.no {
+            background: rgba(244,67,54,0.2);
+            color: #f44336;
+        }
+        .loading {
+            text-align: center;
+            color: #888;
+            padding: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>📊 Dashboard Proiecte</h1>
+        <p>Toate proiectele lui Siro într-un loc</p>
+    </div>
+    
+    <div class="stats">
+        <div class="stat-box">
+            <div class="stat-number" id="totalProjects">-</div>
+            <div class="stat-label">Total Proiecte</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number" id="activeProjects">-</div>
+            <div class="stat-label">Active</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number" id="moneyProjects">-</div>
+            <div class="stat-label">Produc Bani</div>
+        </div>
+        <div class="stat-box">
+            <div class="stat-number" id="androidProjects">-</div>
+            <div class="stat-label">Au App</div>
+        </div>
+    </div>
+    
+    <div class="projects-grid" id="projects">
+        <div class="loading">Se încarcă proiectele...</div>
+    </div>
+
+    <script>
+        async function loadProjects() {
+            try {
+                const response = await fetch('projects.json');
+                const projects = await response.json();
+                renderProjects(projects);
+                updateStats(projects);
+            } catch (error) {
+                document.getElementById('projects').innerHTML = 
+                    '<div class="loading">Eroare la încărcare: ' + error.message + '</div>';
+            }
+        }
+        
+        function updateStats(projects) {
+            document.getElementById('totalProjects').textContent = projects.length;
+            document.getElementById('activeProjects').textContent = 
+                projects.filter(p => p.status === 'activ').length;
+            document.getElementById('moneyProjects').textContent = 
+                projects.filter(p => p.money).length;
+            document.getElementById('androidProjects').textContent = 
+                projects.filter(p => p.android).length;
+        }
+        
+        function renderProjects(projects) {
+            const grid = document.getElementById('projects');
+            grid.innerHTML = projects.map(project => `
+                <div class="project-card">
+                    <div class="project-header">
+                        <h2 class="project-name">${project.name}</h2>
+                        <span class="status.status}">${project.status}</span-badge status-${project>
+                    </div>
+                    <p class="project-desc">${project.description}</p>
+                    
+                    <div class="project-info">
+                        <div class="info-item">
+                            <div class="info-label">Host</div>
+                            <div class="info-value">${project.host}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Stadiu</div>
+                            <div class="info-value">${project.stage}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Agents</div>
+                            <div class="info-value">${project.agents}</div>
+                        </div>
+                        <div class="info-item">
+                            <div class="info-label">Ultima actualizare</div>
+                            <div class="info-value">${project.lastUpdate}</div>
+                        </div>
+                    </div>
+                    
+                    <div class="features">
+                        <span class="feature ${project.money ? 'money' : 'no'}">
+                            ${project.money ? '💰 Produc bani' : '❌ Nu produc bani'}
+                        </span>
+                        <span class="feature ${project.android ? '' : 'no'}">
+                            ${project.android ? '📱 Are Android' : '❌ Fără Android'}
+                        </span>
+                    </div>
+                    
+                    <div class="project-links">
+                        <a href="${project.url}" target="_blank" class="btn btn-primary">🌐 Site</a>
+                        <a href="${project.github}" target="_blank" class="btn btn-secondary">🐙 GitHub</a>
+                        ${project.apk ? `<a href="${project.apk}" target="_blank" class="btn btn-secondary">📦 APK</a>` : ''}
+                    </div>
+                </div>
+            `).join('');
+        }
+        
+        loadProjects();
+    </script>
+</body>
+</html>
