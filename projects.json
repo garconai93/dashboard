@@ -1,0 +1,59 @@
+[
+  {
+    "id": 1,
+    "name": "AziNews",
+    "description": "Site de stiri cu Radio, Vreme, Curs, Horoscop",
+    "status": "activ",
+    "host": "GitHub Pages",
+    "url": "https://azinews.ro",
+    "github": "https://github.com/garconai93/AziNews-HTML",
+    "agents": 0,
+    "stage": "in dezvoltare",
+    "money": false,
+    "android": false,
+    "lastUpdate": "2026-03-07"
+  },
+  {
+    "id": 2,
+    "name": "Bucharest Guide",
+    "description": "Ghid de calatorie pentru orasele din Romania",
+    "status": "activ",
+    "host": "GitHub Pages",
+    "url": "https://ghidoras.ro",
+    "github": "https://github.com/garconai93/bucharest-guide",
+    "agents": 0,
+    "stage": "in dezvoltare",
+    "money": false,
+    "android": false,
+    "lastUpdate": "2026-03-07"
+  },
+  {
+    "id": 3,
+    "name": "FlacaraFood",
+    "description": "Site pentru restaurantul Flacara din Galati",
+    "status": "activ",
+    "host": "GitHub Pages",
+    "url": "https://flacarafood.ro",
+    "github": "https://github.com/garconai93/FlacaraFood",
+    "agents": 0,
+    "stage": "activ",
+    "money": false,
+    "android": false,
+    "lastUpdate": "2026-03-07"
+  },
+  {
+    "id": 4,
+    "name": "UtilityAnalyzer",
+    "description": "App Android pentru diagnosticare retea si dispozitiv",
+    "status": "activ",
+    "host": "GitHub Pages + GitHub Actions",
+    "url": "https://garconai93.github.io/utility-analyzer-web/",
+    "github": "https://github.com/garconai93/UtilityAnalyzer",
+    "apk": "https://github.com/garconai93/UtilityAnalyzer/releases",
+    "agents": 0,
+    "stage": "activ",
+    "money": false,
+    "android": true,
+    "lastUpdate": "2026-03-07"
+  }
+]
