@@ -171,6 +171,13 @@
             color: #888;
             padding: 50px;
         }
+        .error {
+            text-align: center;
+            color: #f44336;
+            padding: 20px;
+            background: rgba(244,67,54,0.1);
+            border-radius: 10px;
+        }
     </style>
 </head>
 <body>
@@ -205,13 +212,19 @@
     <script>
         async function loadProjects() {
             try {
+                console.log('Loading projects...');
                 const response = await fetch('projects.json');
+                if (!response.ok) {
+                    throw new Error('HTTP ' + response.status);
+                }
                 const projects = await response.json();
+                console.log('Projects loaded:', projects);
                 renderProjects(projects);
                 updateStats(projects);
             } catch (error) {
+                console.error('Error:', error);
                 document.getElementById('projects').innerHTML = 
-                    '<div class="loading">Eroare la încărcare: ' + error.message + '</div>';
+                    '<div class="error">Eroare: ' + error.message + '</div>';
             }
         }
         
