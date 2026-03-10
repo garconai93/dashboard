@@ -2,36 +2,36 @@
   {
     "id": 1,
     "name": "AziNews",
-    "description": "Site de stiri cu Radio, Vreme, Curs, Horoscop + App Android",
+    "description": "Site de știri cu Radio, Vreme, Curs, Horoscop + App Android",
     "status": "activ",
     "host": "GitHub Pages",
     "url": "https://azinews.ro",
     "github": "https://github.com/garconai93/AziNews-HTML",
     "apk": null,
     "agents": 0,
-    "stage": "in aprobare Google Play",
+    "stage": "activ",
     "money": false,
     "android": true,
-    "lastUpdate": "2026-03-07"
+    "lastUpdate": "2026-03-10"
   },
   {
     "id": 2,
     "name": "Bucharest Guide",
-    "description": "Ghid de calatorie pentru orasele din Romania",
+    "description": "Ghid de călătorie pentru orașele din România",
     "status": "activ",
     "host": "GitHub Pages",
     "url": "https://ghidoras.ro",
     "github": "https://github.com/garconai93/bucharest-guide",
     "agents": 0,
-    "stage": "in dezvoltare",
+    "stage": "activ",
     "money": false,
     "android": false,
-    "lastUpdate": "2026-03-07"
+    "lastUpdate": "2026-03-10"
   },
   {
     "id": 3,
     "name": "FlacaraFood",
-    "description": "Site pentru restaurantul Flacara din Galati",
+    "description": "Site pentru restaurantul Flăcară din Galați",
     "status": "activ",
     "host": "GitHub Pages",
     "url": "https://flacarafood.ro",
@@ -40,12 +40,12 @@
     "stage": "activ",
     "money": false,
     "android": false,
-    "lastUpdate": "2026-03-07"
+    "lastUpdate": "2026-03-10"
   },
   {
     "id": 4,
     "name": "UtilityAnalyzer",
-    "description": "App Android pentru diagnosticare retea si dispozitiv",
+    "description": "App Android pentru diagnosticare rețea și dispozitiv",
     "status": "activ",
     "host": "GitHub Pages + GitHub Actions",
     "url": "https://garconai93.github.io/utility-analyzer-web/",
@@ -55,6 +55,62 @@
     "stage": "activ",
     "money": false,
     "android": true,
-    "lastUpdate": "2026-03-07"
+    "lastUpdate": "2026-03-10"
+  },
+  {
+    "id": 5,
+    "name": "ProductReviews",
+    "description": "Site cu recenzii produse - design modern purple/lime",
+    "status": "activ",
+    "host": "GitHub Pages",
+    "url": "https://garconai93.github.io/ProductReviews/",
+    "github": "https://github.com/garconai93/ProductReviews",
+    "agents": 0,
+    "stage": "activ",
+    "money": false,
+    "android": false,
+    "lastUpdate": "2026-03-10"
+  },
+  {
+    "id": 6,
+    "name": "BookingOnline",
+    "description": "Platformă de rezervări online pentru servicii în România",
+    "status": "activ",
+    "host": "GitHub Pages",
+    "url": "https://garconai93.github.io/BookingOnline/",
+    "github": "https://github.com/garconai93/BookingOnline",
+    "agents": 0,
+    "stage": "activ",
+    "money": false,
+    "android": false,
+    "lastUpdate": "2026-03-10"
+  },
+  {
+    "id": 7,
+    "name": "RomanianCookbook",
+    "description": "Carte de rețete românești cu poze reale",
+    "status": "activ",
+    "host": "GitHub Pages",
+    "url": "https://garconai93.github.io/RomanianCookbook/",
+    "github": "https://github.com/garconai93/RomanianCookbook",
+    "agents": 0,
+    "stage": "activ",
+    "money": false,
+    "android": false,
+    "lastUpdate": "2026-03-10"
+  },
+  {
+    "id": 8,
+    "name": "Price Comparator",
+    "description": "Compara prețuri produse din multiple magazine",
+    "status": "activ",
+    "host": "GitHub Pages",
+    "url": "https://garconai93.github.io/price-comparator/",
+    "github": "https://github.com/garconai93/price-comparator",
+    "agents": 0,
+    "stage": "activ",
+    "money": false,
+    "android": false,
+    "lastUpdate": "2026-03-10"
   }
 ]
