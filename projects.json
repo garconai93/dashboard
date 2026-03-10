@@ -7,9 +7,9 @@
     "host": "GitHub Pages",
     "url": "https://azinews.ro",
     "github": "https://github.com/garconai93/AziNews-HTML",
-    "apk": null,
+    "apk": "https://github.com/garconai93/azinews_app_v2/releases",
     "agents": 0,
-    "stage": "activ",
+    "stage": "în aprobare Google Play",
     "money": false,
     "android": true,
     "lastUpdate": "2026-03-10"
