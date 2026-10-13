@@ -130,7 +130,7 @@
     try {
       errorState.classList.add("hidden");
       loading.classList.remove("hidden");
-      const response = await fetch("./projects.json");
+      const response = await fetch("../../projects.json");
       if (!response.ok) throw new Error(`HTTP ${response.status}`);
       const data = await response.json();
       state.projects = Array.isArray(data) ? data : [];
