@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Dashboard redesign preview</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="page-header">
+    <div class="container">
+      <a class="link-back" href="../../index.html">Vezi versiunea veche</a>
+      <div class="header-row">
+        <span class="badge preview-badge">Preview</span>
+        <h1>Dashboard redesign</h1>
+      </div>
+      <p class="subtitle">Un UI curat, responsiv și accesibil pentru proiectele tale.</p>
+    </div>
+  </header>
+
+  <main class="container page-main">
+    <section class="stats-section" aria-labelledby="stats-title">
+      <h2 class="visually-hidden" id="stats-title">Statistici principale</h2>
+      <div class="stats-grid">
+        <article class="stat-card">
+          <dt>Total proiecte</dt>
+          <dd data-stat="total">-</dd>
+        </article>
+        <article class="stat-card">
+          <dt>Active</dt>
+          <dd data-stat="active">-</dd>
+        </article>
+        <article class="stat-card">
+          <dt>Au Android</dt>
+          <dd data-stat="android">-</dd>
+        </article>
+        <article class="stat-card">
+          <dt>Produc bani</dt>
+          <dd data-stat="money">-</dd>
+        </article>
+      </div>
+    </section>
+
+    <section class="toolbar" aria-labelledby="toolbar-title">
+      <h2 class="visually-hidden" id="toolbar-title">Filtre și căutare</h2>
+      <div class="search-wrap">
+        <label for="project-search">Caută proiecte</label>
+        <input id="project-search" type="search" placeholder="Caută după nume sau descriere" autocomplete="off" />
+      </div>
+      <div class="filters" role="group" aria-label="Filtre rapide">
+        <button class="filter is-active" data-filter="all" type="button" aria-pressed="true">Toate</button>
+        <button class="filter" data-filter="android" type="button" aria-pressed="false">Au Android</button>
+        <button class="filter" data-filter="money" type="button" aria-pressed="false">Produc bani</button>
+        <button class="filter" data-filter="inactve" type="button" aria-pressed="false">Inactive</button>
+      </div>
+    </section>
+
+    <section class="projects-section" aria-labelledby="projects-title">
+      <div class="projects-head">
+        <h2 id="projects-title">Proiecte</h2>
+        <p id="project-count" class="project-count" aria-live="polite">Se încarcă…</p>
+      </div>
+      <div class="project-grid" id="project-grid" aria-live="polite"></div>
+      <div id="loading-state" class="state-note">Se încarcă datele…</div>
+      <div id="error-state" class="state-note error hidden">Nu am putut încărca datele. Încearcă din nou.</div>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    <p>Un preview de redesign.</p>
+  </footer>
+
+  <script src="./app.js" defer></script>
+</body>
+</html>
